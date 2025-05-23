@@ -2,6 +2,10 @@ package org.example;
 
 public class Areas {
 
+    // Precomputed constants for regular polygons
+    private static final double COT_PI_OVER_7 = 1 / Math.tan(Math.PI / 7);
+    private static final double COT_PI_OVER_5 = 1 / Math.tan(Math.PI / 5);
+
     // Area of a circle: π * r^2
     public static double circle(double radius) {
         if (radius < 0) throw new IllegalArgumentException("Radius must be non-negative");
@@ -29,15 +33,13 @@ public class Areas {
     // Area of a regular heptagon: (7/4) * a^2 * cot(π/7)
     public static double heptagon(double side) {
         if (side < 0) throw new IllegalArgumentException("Side must be non-negative");
-        double cotPiOver7 = 1 / Math.tan(Math.PI / 7);
-        return (7.0 / 4.0) * side * side * cotPiOver7;
+        return (7.0 / 4.0) * side * side * COT_PI_OVER_7;
     }
 
     // Area of a regular pentagon: (5/4) * a^2 * cot(π/5)
     public static double pentagon(double side) {
         if (side < 0) throw new IllegalArgumentException("Side must be non-negative");
-        double cotPiOver5 = 1 / Math.tan(Math.PI / 5);
-        return (5.0 / 4.0) * side * side * cotPiOver5;
+        return (5.0 / 4.0) * side * side * COT_PI_OVER_5;
     }
 
     // Area of a parallelogram: base * height
@@ -61,6 +63,6 @@ public class Areas {
     // Area of a rhombus: (diagonal1 * diagonal2) / 2
     public static double rhombus(double diagonal1, double diagonal2) {
         if (diagonal1 < 0 || diagonal2 < 0) throw new IllegalArgumentException("Diagonals must be non-negative");
-        return (diagonal1 * diagonal2) / 2;
+        return 0.5 * diagonal1 * diagonal2;
     }
 }
