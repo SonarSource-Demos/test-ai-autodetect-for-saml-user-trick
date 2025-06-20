@@ -30,4 +30,15 @@ class VolumesTest {
         assertThrows(IllegalArgumentException.class, () -> Volumes.cone(-3, 5));
         assertThrows(IllegalArgumentException.class, () -> Volumes.cone(3, -5));
     }
+
+    @Test
+    void testRectangularPrism() {
+        assertEquals(60, Volumes.rectangularPrism(3, 4, 5), 0.0001);
+        assertEquals(0, Volumes.rectangularPrism(0, 4, 5), 0.0001);
+        assertEquals(0, Volumes.rectangularPrism(3, 0, 5), 0.0001);
+        assertEquals(0, Volumes.rectangularPrism(3, 4, 0), 0.0001);
+        assertThrows(IllegalArgumentException.class, () -> Volumes.rectangularPrism(-3, 4, 5));
+        assertThrows(IllegalArgumentException.class, () -> Volumes.rectangularPrism(3, -4, 5));
+        assertThrows(IllegalArgumentException.class, () -> Volumes.rectangularPrism(3, 4, -5));
+    }
 }

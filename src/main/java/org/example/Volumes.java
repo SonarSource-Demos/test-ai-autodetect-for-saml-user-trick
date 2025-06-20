@@ -17,4 +17,11 @@ public class Volumes {
         if (radius < 0 || height < 0) throw new IllegalArgumentException("Radius and height must be non-negative");
         return (1.0 / 3.0) * Math.PI * Math.pow(radius, 2) * height;
     }
+
+    public static double rectangularPrism(double length, double width, double height) {
+        if (length < 0 || width < 0 || height < 0) {
+            throw new IllegalArgumentException("Length, width, and height must be non-negative");
+        }
+        return length * width * height;
+    }
 }
