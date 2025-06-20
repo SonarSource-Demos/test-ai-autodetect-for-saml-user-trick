@@ -21,4 +21,13 @@ class VolumesTest {
         assertThrows(IllegalArgumentException.class, () -> Volumes.cylinder(-3, 5));
         assertThrows(IllegalArgumentException.class, () -> Volumes.cylinder(3, -5));
     }
+
+    @Test
+    void testCone() {
+        assertEquals((1.0 / 3.0) * Math.PI * Math.pow(3, 2) * 5, Volumes.cone(3, 5), 0.0001);
+        assertEquals(0, Volumes.cone(0, 5), 0.0001);
+        assertEquals(0, Volumes.cone(3, 0), 0.0001);
+        assertThrows(IllegalArgumentException.class, () -> Volumes.cone(-3, 5));
+        assertThrows(IllegalArgumentException.class, () -> Volumes.cone(3, -5));
+    }
 }
