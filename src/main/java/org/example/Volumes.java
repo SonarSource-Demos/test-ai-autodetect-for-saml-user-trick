@@ -24,4 +24,11 @@ public class Volumes {
         }
         return length * width * height;
     }
+
+    public static double toroid(double majorRadius, double minorRadius) {
+        if (majorRadius < 0 || minorRadius < 0) {
+            throw new IllegalArgumentException("Major and minor radii must be non-negative");
+        }
+        return 2 * Math.PI * Math.PI * majorRadius * Math.pow(minorRadius, 2);
+    }
 }
