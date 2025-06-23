@@ -40,4 +40,11 @@ public class Volumes {
         double b = diameter / 2.0;
         return (4.0 / 3.0) * Math.PI * a * b * b;
     }
+
+    public static double pyramid(double length, double width, double height) {
+        if (length < 0 || width < 0 || height < 0) {
+            throw new IllegalArgumentException("Length, width, and height must be non-negative");
+        }
+        return (1.0 / 3.0) * length * width * height;
+    }
 }
