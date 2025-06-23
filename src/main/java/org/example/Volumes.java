@@ -31,4 +31,13 @@ public class Volumes {
         }
         return 2 * Math.PI * Math.PI * majorRadius * Math.pow(minorRadius, 2);
     }
+
+    public static double zeppelin(double length, double diameter) {
+        if (length < 0 || diameter < 0) {
+            throw new IllegalArgumentException("Length and diameter must be non-negative");
+        }
+        double a = length / 2.0;
+        double b = diameter / 2.0;
+        return (4.0 / 3.0) * Math.PI * a * b * b;
+    }
 }
