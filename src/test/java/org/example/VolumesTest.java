@@ -41,4 +41,13 @@ class VolumesTest {
         assertThrows(IllegalArgumentException.class, () -> Volumes.rectangularPrism(3, -4, 5));
         assertThrows(IllegalArgumentException.class, () -> Volumes.rectangularPrism(3, 4, -5));
     }
+
+    @Test
+    void testToroid() {
+        assertEquals(2 * Math.PI * Math.PI * 5 * Math.pow(3, 2), Volumes.toroid(5, 3), 0.0001);
+        assertEquals(0, Volumes.toroid(0, 3), 0.0001);
+        assertEquals(0, Volumes.toroid(5, 0), 0.0001);
+        assertThrows(IllegalArgumentException.class, () -> Volumes.toroid(-5, 3));
+        assertThrows(IllegalArgumentException.class, () -> Volumes.toroid(5, -3));
+    }
 }
