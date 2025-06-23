@@ -47,4 +47,11 @@ public class Volumes {
         }
         return (1.0 / 3.0) * length * width * height;
     }
+
+    public static double cube(double side) {
+        if (side < 0) {
+            throw new IllegalArgumentException("Side length must be non-negative");
+        }
+        return Math.pow(side, 3);
+    }
 }
