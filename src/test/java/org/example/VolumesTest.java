@@ -70,4 +70,11 @@ class VolumesTest {
         assertThrows(IllegalArgumentException.class, () -> Volumes.pyramid(3, -4, 5));
         assertThrows(IllegalArgumentException.class, () -> Volumes.pyramid(3, 4, -5));
     }
+
+    @Test
+    void testCube() {
+        assertEquals(Math.pow(3, 3), Volumes.cube(3), 0.0001);
+        assertEquals(0, Volumes.cube(0), 0.0001);
+        assertThrows(IllegalArgumentException.class, () -> Volumes.cube(-3));
+    }
 }
