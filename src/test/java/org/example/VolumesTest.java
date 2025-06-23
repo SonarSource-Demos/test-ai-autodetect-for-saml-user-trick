@@ -59,4 +59,15 @@ class VolumesTest {
         assertThrows(IllegalArgumentException.class, () -> Volumes.zeppelin(-10, 5));
         assertThrows(IllegalArgumentException.class, () -> Volumes.zeppelin(10, -5));
     }
+
+    @Test
+    void testPyramid() {
+        assertEquals((1.0 / 3.0) * 3 * 4 * 5, Volumes.pyramid(3, 4, 5), 0.0001);
+        assertEquals(0, Volumes.pyramid(0, 4, 5), 0.0001);
+        assertEquals(0, Volumes.pyramid(3, 0, 5), 0.0001);
+        assertEquals(0, Volumes.pyramid(3, 4, 0), 0.0001);
+        assertThrows(IllegalArgumentException.class, () -> Volumes.pyramid(-3, 4, 5));
+        assertThrows(IllegalArgumentException.class, () -> Volumes.pyramid(3, -4, 5));
+        assertThrows(IllegalArgumentException.class, () -> Volumes.pyramid(3, 4, -5));
+    }
 }
