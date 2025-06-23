@@ -50,4 +50,13 @@ class VolumesTest {
         assertThrows(IllegalArgumentException.class, () -> Volumes.toroid(-5, 3));
         assertThrows(IllegalArgumentException.class, () -> Volumes.toroid(5, -3));
     }
+
+    @Test
+    void testZeppelin() {
+        assertEquals((4.0 / 3.0) * Math.PI * (10 / 2.0) * Math.pow(5 / 2.0, 2), Volumes.zeppelin(10, 5), 0.0001);
+        assertEquals(0, Volumes.zeppelin(0, 5), 0.0001);
+        assertEquals(0, Volumes.zeppelin(10, 0), 0.0001);
+        assertThrows(IllegalArgumentException.class, () -> Volumes.zeppelin(-10, 5));
+        assertThrows(IllegalArgumentException.class, () -> Volumes.zeppelin(10, -5));
+    }
 }
