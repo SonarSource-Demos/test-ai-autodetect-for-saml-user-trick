@@ -13,5 +13,32 @@ public class Main {
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
         }
+
+        // Switch Expression
+        String mode = "";
+        int i = switch (mode) {
+            case "a":
+            case "b":
+                yield 1;
+            default:
+                yield 3;
+        };
+
+        // Switch Statement
+        switch (mode) {
+            case "a":
+            case "b":
+                doSomething();
+                break;
+            default:
+                doSomethingElse();
+        }
+    }
+
+    private static void doSomethingElse() {
+    }
+
+    private static void doSomething() {
+
     }
 }
